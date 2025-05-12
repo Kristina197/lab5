@@ -5,10 +5,10 @@ using namespace std;
 
 // Внутренние структуры для хранения данных
 namespace {
-    // Основное хранилище маршрутов: троллейбус -> остановки
+    // Основное хранилище маршрутов: троллейбус - остановки
     map<string, vector<string>> trolleyRoutes;
     
-    // Хранилище для быстрого поиска: остановка -> троллейбусы
+    // Хранилище для быстрого поиска: остановка - троллейбусы
     map<string, set<string>> stopToTrolleys;
 }
 
@@ -45,7 +45,7 @@ void addTrolleyRoute(const string& trolleyName, const vector<string>& stops) {
 // Получение троллейбусов для остановки
 set<string> getTrolleysForStop(const string& stop) {
     auto it = stopToTrolleys.find(stop);
-    // Если остановка найдена, возвращаем список троллейбусов, иначе пустое множество
+    // Если остановка найдена, возвращаем список троллейбусов, если нет то пустое множество
     return it != stopToTrolleys.end() ? it->second : set<string>{};
 }
 
